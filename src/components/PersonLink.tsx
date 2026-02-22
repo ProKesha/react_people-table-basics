@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import { Person } from '../types/Person';
 
 interface Props {
@@ -5,10 +7,10 @@ interface Props {
 }
 
 export const PersonLink = ({ person }: Props) => (
-  <a
-    href={`#/people/${person.slug}`}
-    className={person.sex === 'f' ? 'has-text-danger' : undefined}
+  <Link
+    to={`/people/${person.slug}`}
+    className={classNames({ 'has-text-danger': person.sex === 'f' })}
   >
     {person.name}
-  </a>
+  </Link>
 );
